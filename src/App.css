@@ -1,0 +1,95 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.navbar {background-color: #4ea6bc;
+padding: 15px;
+border-radius: 0;
+margin: 0;
+min-height: 55px;
+}
+
+.container {
+  
+}
+
+.navbar-right {
+  float: right;
+}
+
+.cart-position {
+  margin-top: -11px;
+}
+
+.sorting {
+  font-weight: 200;
+  color: #000;
+  letter-spacing: -0.8px;
+}
+
+.sorting-bar{
+  height: 50px;
+  padding-top: 10px;
+  /*margin-left: -98px;*/
+}
+
+.filter-panel{
+  /*float: left!important;*/
+  height: 1000px;
+  border: #282c34;
+  border: 1px;
+  /*margin-right: -20px;*/
+}
+
+.filterBtn{
+  height: 30px;
+  width: 70px;
+  color: white;
+  background: blue;
+}
+
+.paddingBtm{
+  padding-bottom:15px;
+}
+
+.dimensions{
+  height: 100%;
+  width: 100%;
+}
+
+.rangeSlider{
+  margin-right: 15px;
+  padding: 45px 0!important;
+  width: 80%!important;
+}
+
+.filterTitle{
+  margin-top: 20px;
+}
+
+.productList{
+  padding-top: 20px;
+}
+
+.sortingTitle{
+  font-weight: bold;
+}
