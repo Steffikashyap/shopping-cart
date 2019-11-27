@@ -28,7 +28,7 @@ class ShoppingList extends React.Component {
                                 <p>{product.name}</p>
                             </a>
                             <b>${product.price} </b>
-                            <button className="btn btn-primary" onClick={() => this.handleAddToCart(product)}>Add to cart</button>
+                            <button className="btn btn-primary btn-size" onClick={() => this.handleAddToCart(product)}>Add to cart</button>
                         </div>
                     </div>
 

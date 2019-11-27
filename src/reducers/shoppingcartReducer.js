@@ -1,6 +1,6 @@
 const initialState = {
     productsList: [],
-    dataFetchObj: {},
+    dataFetchObj: {}
 
 };
 const shoppingcartReducer = (state = initialState, action) => {

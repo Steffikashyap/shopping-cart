@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from '../logo.svg';
 import '../App.css';
 import Header from "./Header.js";
 import 'font-awesome/css/font-awesome.min.css';
@@ -11,6 +10,7 @@ import { getProductList } from '../actions/shoppingcartAction';
 import { Container, Row, Col } from 'react-bootstrap';
 import { func } from 'prop-types';
 import Checkout from './Checkout';
+import { withRouter } from "react-router-dom";
 
 class App extends React.Component {
   constructor(props) {
@@ -72,21 +72,19 @@ class App extends React.Component {
   }
 
   gotoCheckoutPage() {
-    // this.props.history.push({
-    //   pathname: '/Checkout',
-    //   state: {
-    //     addedProducts: this.state.cartArrP
-    //   }
-    // })
-    this.setState({
-      showCheckOutPage: true
-    });
+    this.props.history.push({
+      pathname: '/Checkout',
+      state: {
+        addedProducts: this.state.cartArrP
+      }
+    })
+    
   }
 
   render() {
     return (
       <div className="App">
-        {this.state.showCheckOutPage ? <Container><Checkout cartArrP={this.state.cartArrP}/></Container> :
+        {/*this.state.showCheckOutPage ? <Container><Checkout cartArrP={this.state.cartArrP}/></Container> :*/}
         <div>
           <Header productCount={this.state.productCount} gotoCheckoutPage={this.gotoCheckoutPage} />
           <Container>
@@ -101,7 +99,6 @@ class App extends React.Component {
             </Row>
           </Container>
           </div>
-        }
       </div>
     )
 
@@ -114,4 +111,4 @@ function mapStateToProps(state) {
     dataFetchObj: state.dataFetchObj,
   }
 }
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(withRouter(App));

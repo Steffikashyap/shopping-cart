@@ -58,7 +58,7 @@ class Filter extends React.Component {
                     </Typography>
                     </Col>
                     <Col md={12}>
-                        <button className="btn btn-primary" onClick={()=>this.handleFilter()} >Apply</button>
+                        <button className="btn btn-primary btn-size" onClick={()=>this.handleFilter()} >Apply</button>
                     </Col>
                 </Row>
             </div>
