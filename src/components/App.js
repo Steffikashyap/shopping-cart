@@ -41,7 +41,8 @@ class App extends React.Component {
       };
       props.dispatch({ type: "DATA_FETCHED", payload: payload });
       return { listOfProducts: props.productsList };
-    }
+    } 
+    return true;
   }
 
   handleSortingPrices(sortby) {
@@ -65,8 +66,13 @@ class App extends React.Component {
   }
 
   getCartProducts(cartArr) {
+
+    let totalNumberOfItems = 0;
+    for (let i = 0; i < cartArr.length; i++) {
+      totalNumberOfItems = totalNumberOfItems + cartArr[i].count;
+    }
     this.setState({
-      productCount: cartArr.length,
+      productCount: totalNumberOfItems,
       cartArrP: cartArr,
     });
   }
@@ -78,13 +84,12 @@ class App extends React.Component {
         addedProducts: this.state.cartArrP
       }
     })
-    
+
   }
 
   render() {
     return (
       <div className="App">
-        {/*this.state.showCheckOutPage ? <Container><Checkout cartArrP={this.state.cartArrP}/></Container> :*/}
         <div>
           <Header productCount={this.state.productCount} gotoCheckoutPage={this.gotoCheckoutPage} />
           <Container>
@@ -98,7 +103,7 @@ class App extends React.Component {
               </Col>
             </Row>
           </Container>
-          </div>
+        </div>
       </div>
     )
 

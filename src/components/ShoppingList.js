@@ -4,17 +4,37 @@ class ShoppingList extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            cartArr: []
+            cartArr: [],
+            count: 1,
         }
     }
 
     handleAddToCart = (productObj) => {
-        let cartArrVal = [ ...this.state.cartArr];
-        cartArrVal.push(productObj);
-        this.setState({ cartArr: cartArrVal }, function () {
-            this.props.getCartProducts(this.state.cartArr);
+        let isIDpresent = false;
+        let cartArrVal = [...this.state.cartArr];
+        let productObjVal = { ...productObj };
+        if (cartArrVal.length === 0) {
+            productObjVal.count = 1;
+            cartArrVal.push(productObjVal);
+        }
+        else {
+            for (let i = 0; i < cartArrVal.length; i++) {
+                if (cartArrVal[i].id === productObjVal.id) {
+                    cartArrVal[i].count = cartArrVal[i].count + 1;
+                    isIDpresent = true;
+                    break;
+                }
+            }
+            if (!isIDpresent) {
+                productObjVal.count = 1;
+                cartArrVal.push(productObjVal);
+            }
+        }
 
+        this.setState({ cartArr: cartArrVal }, () => {
+            this.props.getCartProducts(this.state.cartArr);
         });
+
     }
     render() {
         return (
